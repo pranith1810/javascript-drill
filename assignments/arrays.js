@@ -75,11 +75,20 @@ function filter(elements, cb) {
 
 const nestedArray = [1, [2], [[3]], [[[4]]]]; // use this to test 'flatten'
 
+let mainRes=[]
 function flatten(elements) {
   // Flattens a nested array (the nesting can be to any depth).
   // Hint: You can solve this using recursion.
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  for(let i=0;i<elements.length;i++){
+    if(Array.isArray(elements[i])){
+      flatten(elements[i]);
+    }
+    else{
+      mainRes.push(elements[i]);
+  }
 
+}
 
 }
 
@@ -110,4 +119,6 @@ const checkIfDivBy20 = num => num%20 === 0;
 // filterAnsArray = filter(items,checkIfDivBy20);
 // console.log("Output for filter function: "+filterAnsArray);
 
+// flatten(nestedArray);
+// console.log(mainRes);
 

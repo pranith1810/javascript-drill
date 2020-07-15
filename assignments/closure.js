@@ -37,8 +37,27 @@ function cacheFunction(cb) {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
+  let cache ={};
+  return function(num){
+    if(num in cache){
+      return cache[num];
+    }
+    else{
+    cache[num]=cb(num);
+    return cache[num];
+    }
+  }
 
 }
+
+//callback functions
+
+const returnHello = () => 'hello'; //for limitFunctionCallCount
+
+const multBy2 = num=>num*2; //for cacheFunction
+
+
+//outputs
 
 // //1st function output
 // const count = counterFactory();
@@ -48,10 +67,15 @@ function cacheFunction(cb) {
 // console.log(count.increment());
 
 // //2nd function output
-// const returnHello = () => 'hello';
 // const limitFunc = limitFunctionCallCount(returnHello,2);
 // console.log(limitFunc());
 // console.log(limitFunc());
 // console.log(limitFunc());
+
+//3rd function output
+// const cacheExec = cacheFunction(multBy2);
+// console.log(cacheExec(2));
+// console.log(cacheExec(4));
+// console.log(cacheExec(2));
 
 

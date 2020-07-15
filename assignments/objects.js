@@ -72,7 +72,7 @@ function defaults(obj, defaultProps) {
   return newObj;
 }
 
-//callback functions
+//callback function for mapObject
 const changeValues = (value,key)=>{
     if(typeof value === 'number')
     {
