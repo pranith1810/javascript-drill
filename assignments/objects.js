@@ -89,23 +89,23 @@ const changeValues = (value,key)=>{
 };
 
 //output for each function
-let ansKeyArray = [];
-ansKeyArray = keys(testObject);
-console.log(ansKeyArray);
+// let ansKeyArray = [];
+// ansKeyArray = keys(testObject);
+// console.log(ansKeyArray);
 
-let ansValueArray = [];
-ansValueArray = values(testObject);
-console.log(ansValueArray);
+// let ansValueArray = [];
+// ansValueArray = values(testObject);
+// console.log(ansValueArray);
 
-mapObject(testObject,changeValues);
-console.log(testObject);
+// mapObject(testObject,changeValues);
+// console.log(testObject);
 
-let ansKeyValueArray = [];
-ansKeyValueArray = pairs(testObject);
-console.log(ansKeyValueArray);
+// let ansKeyValueArray = [];
+// ansKeyValueArray = pairs(testObject);
+// console.log(ansKeyValueArray);
 
-let ansNewObj = invert(testObject);
-console.log(ansNewObj); 
+// let ansNewObj = invert(testObject);
+// console.log(ansNewObj); 
 
-let newObj=defaults(testObject,{animal:'bat'})
-console.log(newObj);
+// let newObj=defaults(testObject,{animal:'bat'})
+// console.log(newObj);

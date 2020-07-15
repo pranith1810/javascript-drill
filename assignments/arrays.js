@@ -73,6 +73,16 @@ function filter(elements, cb) {
   return newArray;
 }
 
+const nestedArray = [1, [2], [[3]], [[[4]]]]; // use this to test 'flatten'
+
+function flatten(elements) {
+  // Flattens a nested array (the nesting can be to any depth).
+  // Hint: You can solve this using recursion.
+  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+
+
+}
+
 //Callback Functions
 
 const multiplyByTen = num => num*10;
@@ -83,29 +93,21 @@ const checkIfDivBy20 = num => num%20 === 0;
 
 //Outputs for each function 
 
-each(items,multiplyByTen);
-console.log("Output for Each function: "+items);
+// each(items,multiplyByTen);
+// console.log("Output for Each function: "+items);
 
-let mapAnsArray = []
-mapAnsArray = map(items,multiplyByTen);
-console.log("Output for map function: "+mapAnsArray);
+// let mapAnsArray = []
+// mapAnsArray = map(items,multiplyByTen);
+// console.log("Output for map function: "+mapAnsArray);
 
-let reduceAns =reduce(items,adder,1);
-console.log("Output for reduce function: "+reduceAns)
+// let reduceAns =reduce(items,adder,1);
+// console.log("Output for reduce function: "+reduceAns)
 
-let findAns = find(items,checkIfDivBy20);
-console.log("Output for find function: "+findAns);
+// let findAns = find(items,checkIfDivBy20);
+// console.log("Output for find function: "+findAns);
 
-let filterAnsArray = []
-filterAnsArray = filter(items,checkIfDivBy20);
-console.log("Output for filter function: "+filterAnsArray);
-
-const nestedArray = [1, [2], [[3]], [[[4]]]]; // use this to test 'flatten'
-
-function flatten(elements) {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Hint: You can solve this using recursion.
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+// let filterAnsArray = []
+// filterAnsArray = filter(items,checkIfDivBy20);
+// console.log("Output for filter function: "+filterAnsArray);
 
 
-}

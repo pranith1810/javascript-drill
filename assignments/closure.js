@@ -40,18 +40,18 @@ function cacheFunction(cb) {
 
 }
 
-//1st function output
-const count = counterFactory();
-count.increment();
-count.increment();
-count.decrement();
-console.log(count.increment());
+// //1st function output
+// const count = counterFactory();
+// count.increment();
+// count.increment();
+// count.decrement();
+// console.log(count.increment());
 
-//2nd function output
-const returnHello = () => 'hello';
-const limitFunc = limitFunctionCallCount(returnHello,2);
-console.log(limitFunc());
-console.log(limitFunc());
-console.log(limitFunc());
+// //2nd function output
+// const returnHello = () => 'hello';
+// const limitFunc = limitFunctionCallCount(returnHello,2);
+// console.log(limitFunc());
+// console.log(limitFunc());
+// console.log(limitFunc());
 
 
