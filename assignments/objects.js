@@ -62,14 +62,12 @@ function defaults(obj, defaultProps) {
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
-  let newObj={}
-  for(let key in obj){
-      newObj[key] = obj[key];
-  }
   for(let key in defaultProps){
-    newObj[key] = defaultProps[key];
-}
-  return newObj;
+    if(!(key in obj)){
+      obj[key] = defaultProps[key];
+    }
+  }
+  return obj;
 }
 
 //callback function for mapObject
@@ -107,5 +105,5 @@ const changeValues = (value,key)=>{
 // let ansNewObj = invert(testObject);
 // console.log(ansNewObj); 
 
-// let newObj=defaults(testObject,{animal:'bat'})
+// let newObj=defaults(testObject,{animal:'bat',hair:'brown',location:'New York'});
 // console.log(newObj);
