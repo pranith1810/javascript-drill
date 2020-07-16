@@ -34,17 +34,23 @@ function map(elements, cb) {
 return newArray;
 }
 
-function reduce(elements, cb, startingValue=0) {
+function reduce(elements, cb, startingValue) {
   // Do NOT use .reduce to complete this function.
   // How reduce works: A reduce function combines all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb` along with the `startingValue`.
   // `startingValue` should be the first argument passed to `cb` and the array element should be the second argument.
   // `startingValue` is the starting value.  If `startingValue` is undefined then make `elements[0]` the initial value.
-  let accumulator =0;
-  for(let i=startingValue;i<elements.length;i++){
+  if(elements.length>0){
+  let accumulator = 0;
+  if(startingValue !== undefined){
+    accumulator = startingValue;
+  }
+  for(let i=0;i<elements.length;i++){
     accumulator = cb(accumulator,elements[i]);
   }
   return accumulator;
+}
+return undefined;
 }
 
 function find(elements, cb) {
@@ -109,8 +115,9 @@ const checkIfDivBy20 = (numList,index) => numList[index]%20 === 0;
 // mapAnsArray = map(items,multiplyByTen);
 // console.log("Output for map function: "+mapAnsArray);
 
-// let reduceAns =reduce(items,adder,1);
+// let reduceAns =reduce(items,adder,20);
 // console.log("Output for reduce function: "+reduceAns)
+// console.log(items.reduce(adder,20));
 
 // let findAns = find(items,checkIfDivBy20);
 // console.log("Output for find function: "+findAns);
