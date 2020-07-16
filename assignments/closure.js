@@ -1,3 +1,5 @@
+const arrays = require('./arrays.js');
+
 function counterFactory() {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
@@ -38,14 +40,13 @@ function cacheFunction(cb) {
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
   let cache ={};
-  return function(num){
-    if(num in cache){
-      return cache[num];
+  return function(...num){
+    let argumentArray = Array.from(num);
+    if(!(argumentArray in cache)){
+      cache[argumentArray] = arrays.reduce(argumentArray,cb); // using the user defined reduce function in arrays.js file
+      //cache[argumentArray] = argumentArray.reduce(cb); 
     }
-    else{
-    cache[num]=cb(num);
-    return cache[num];
-    }
+    return cache[argumentArray];
   }
 
 }
@@ -54,7 +55,7 @@ function cacheFunction(cb) {
 
 const returnHello = () => 'hello'; //for limitFunctionCallCount
 
-const multBy2 = num=>num*2; //for cacheFunction
+const adder = (accumulator,num)=>accumulator+num; //for cacheFunction
 
 
 //outputs
@@ -73,9 +74,11 @@ const multBy2 = num=>num*2; //for cacheFunction
 // console.log(limitFunc());
 
 //3rd function output
-// const cacheExec = cacheFunction(multBy2);
-// console.log(cacheExec(2));
+// const cacheExec = cacheFunction(adder);
+// console.log(cacheExec(2,13,4));
 // console.log(cacheExec(4));
-// console.log(cacheExec(2));
+// console.log(cacheExec(2,1));
+// console.log(cacheExec(4));
+// console.log(cacheExec(2,13,4));
 
 
