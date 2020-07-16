@@ -16,7 +16,7 @@ function each(elements, cb) {
   // You should also pass the index into `cb` as the second argument
   // based off http://underscorejs.org/#each
   for(let i=0;i<elements.length;i++){
-      elements[i]=cb(elements[i]);
+      elements[i]=cb(elements,i);
   }
 
 }
@@ -29,7 +29,7 @@ function map(elements, cb) {
   // Return the new array.
   let newArray = []
   for(let i=0;i<elements.length;i++){
-    newArray.push(cb(elements[i]));
+    newArray.push(cb(elements,i));
 }
 return newArray;
 }
@@ -53,7 +53,7 @@ function find(elements, cb) {
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
   for(let i=0;i<elements.length;i++){
-      if(cb(elements[i])){
+      if(cb(elements,i)){
           return elements[i];
       }
   }
@@ -66,7 +66,7 @@ function filter(elements, cb) {
   // Return an empty array if no elements pass the truth test
   let newArray=[]
   for(let i=0;i<elements.length;i++){
-      if(cb(elements[i])){
+      if(cb(elements,i)){
           newArray.push(elements[i]);
       }
   }
@@ -94,11 +94,11 @@ function flatten(elements) {
 
 //Callback Functions
 
-const multiplyByTen = num => num*10;
+const multiplyByTen = (numList,index) => numList[index]*10;
 
 const adder = (accumulator,currentValue) => accumulator+currentValue;
 
-const checkIfDivBy20 = num => num%20 === 0;
+const checkIfDivBy20 = (numList,index) => numList[index]%20 === 0;
 
 //Outputs for each function 
 
